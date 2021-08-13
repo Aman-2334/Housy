@@ -44,11 +44,13 @@ class _HomePageState extends State<HomePage> {
             // final movies = state.movies;
             print('LoadedState');
             final List movies = state.movies;
-            return ListView.builder(
-                itemBuilder: (context, index) {
-                  return Movies(movies[index]).movieTiles(context);
-                },
-                itemCount: movies.length);
+            return Scrollbar(
+              child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return Movies(movies[index]).movieTiles(context);
+                  },
+                  itemCount: movies.length),
+            );
           } else {
             return Container();
           }
